@@ -13,7 +13,9 @@ def is_hex(s):
 
 def format_hex(s):
     """Remove extraneous characters from s and make its length even."""
-    return make_even(s.lstrip('0x').rstrip('L'))
+    while s.startswith('0x'):
+        s = s[2:]
+    return make_even(s.rstrip('L'))
 
 def hexs(arg):
     """Return the formatted hex representation of arg."""
